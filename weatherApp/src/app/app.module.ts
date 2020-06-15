@@ -8,6 +8,7 @@ import { WeatherItemComponent } from './weather/weather-item/weather-item.compon
 import { WeatherListComponent } from './weather/weather-list/weather-list.component';
 import { WeatherService } from '../app/weather/service/weather.service';
 import { WeatherSearchComponent } from './weather/weather-search/weather-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { WeatherSearchComponent } from './weather/weather-search/weather-search.
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule
   ],

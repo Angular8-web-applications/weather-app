@@ -1,12 +1,11 @@
 <div >
-    <form (ngSubmit)='onSubmit(f)' #f="ngForm" class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="city name" name="location" [(ngModel)]='f.location'>
-        <!--   -->
+    <form (ngSubmit)='onSubmit()' class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="city name" name="location" (keyup)='onSearchingForLocation(cityName.value)' #cityName required>
         <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="submit">add city</button>
         </div>
     </form>
     <div class="mx-auto">
-        <span>city found:  </span>
+        <span>city found: {{cityNameFound}} </span>
     </div>
 </div>

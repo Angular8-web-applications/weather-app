@@ -24,13 +24,12 @@ export class WeatherSearchComponent implements OnInit {
     this.searchStream
     .next(cityname)
   }
-  constructor(private weatherService: WeatherService) { }
-  ngOnInit() {
+  constructor(private weatherService: WeatherService) {
     this.searchStream
       .pipe(switchMap((inputName:string) => 
         this.weatherService.searchWeatherData(inputName)
       )
-      ,debounceTime(4000)
+      ,debounceTime(9000)
       ,distinctUntilChanged()
     )
     .subscribe(data=>{
@@ -38,6 +37,9 @@ export class WeatherSearchComponent implements OnInit {
       this.cityNameFound=data.body.name
       console.log(this.weatherData);
     })
+   }
+  ngOnInit() {
+    
   }
 
 }

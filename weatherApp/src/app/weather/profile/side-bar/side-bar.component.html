@@ -1,0 +1,12 @@
+<div>
+    <p>Saved profile</p>
+    <section class="container mt-4">
+        <article class="alert alert-dark " *ngFor='let profile of proflies' (click)='onLoadProfile(profile)'>
+            <h3>{{profile.profileName}}:</h3>
+            <button type="button" (click)='deleteProfile($event ,profile)' class="close" data-dismiss="alert">&times;</button>
+            <h4>Cities : {{profile.cities.join(', ')}}</h4>
+        </article>
+    </section>
+    
+    
+</div>

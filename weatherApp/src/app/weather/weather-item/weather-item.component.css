@@ -1,0 +1,90 @@
+/*
+====================
+Weather Card Styling
+====================
+*/
+.weather__card {
+  justify-items: center;
+  background-color: white;
+  border-radius: 1.75rem;
+  animation: slideup 1s ease-in-out, fadein 1.25s ease-in-out 0ms 1;
+  background-image: linear-gradient(to bottom, #454354, #5e5366, #796375, #947383, #af858f, #ba8d98, #c596a0, #d09ea9, #cb9fb3, #c3a1bd, #b9a4c5, #aca7cb);
+  color: white;
+}
+
+.weather__card-add {
+  cursor: auto;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 255, 0.5);
+}
+
+
+.city-name__text {
+  text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  color:#D19F9C
+}
+
+.temperature__text {
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+}
+
+.temperature-metric__text {
+  font-size: 2rem;
+}
+
+
+.weather-condition__text {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #454354;
+  font-weight: 600;
+}
+
+
+
+
+.weather-icon__container {
+  width: 10rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.weather-icon__container > svg {
+  width: 10rem;
+}
+
+.add-city-btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+  color: white;
+  margin-top: 2rem;
+  background-color: #2b244d;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.add-city-btn:hover {
+  background-color: #31feae;
+}
+
+.city-added-note {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadein 1s ease-in-out;
+  width: 100%;
+}
+
+.add-success-text{
+  font-size: 1.25rem;
+}

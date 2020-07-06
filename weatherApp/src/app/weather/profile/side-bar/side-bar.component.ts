@@ -5,7 +5,7 @@ import { WeatherService } from '../../service/weather.service';
 import { retry } from 'rxjs/operators';
 import { WeatherItemClass } from '../../classes/weatherItem';
 import { WEATHER_ITEM } from '../../weather.data';
-
+declare var $: any;
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
@@ -14,7 +14,7 @@ import { WEATHER_ITEM } from '../../weather.data';
 export class SideBarComponent implements OnInit {
   public proflies:Profile[]
   constructor(private profileService:ProfileService,private weatherService:WeatherService) { }
-
+  public iconUrl= ``;
   public onLoadProfile(profile :Profile){
     this.weatherService.clearWeatherItem()
     /* for (let x=0;x=profile.cities.length;x++){
@@ -25,7 +25,7 @@ export class SideBarComponent implements OnInit {
     } */
     profile.cities.map(city=>{
       this.weatherService.searchWeatherData(city).pipe(retry()).subscribe(data=>{
-        const newWeatherItem = new WeatherItemClass(data.body.name,data.body.weather[0].description,data.body.main.temp)
+        const newWeatherItem = new WeatherItemClass(data.body.name,data.body.weather[0].description,data.body.main.temp,`http://openweathermap.org/img/wn/${data.body.weather[0].icon}@2x.png`)
         this.weatherService.addingWeatherItem(newWeatherItem)
       })
     })
@@ -39,6 +39,10 @@ export class SideBarComponent implements OnInit {
     this.proflies= this.profileService.getProfile()
     console.log(this.proflies);
     
+
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
   }
 
 }

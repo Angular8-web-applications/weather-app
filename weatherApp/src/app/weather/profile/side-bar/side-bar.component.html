@@ -1,12 +1,12 @@
 <div>
-    <p>Saved profile</p>
-    <section class="container mt-4">
-        <article class="alert alert-dark " *ngFor='let profile of proflies' (click)='onLoadProfile(profile)'>
-            <h3>{{profile.profileName}}:</h3>
-            <button type="button" (click)='deleteProfile($event ,profile)' class="close" data-dismiss="alert">&times;</button>
-            <h4>Cities : {{profile.cities.join(', ')}}</h4>
-        </article>
-    </section>
     
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view" style="height: 150px; background-color: #424050 !important;">
+      <div class=""><h4 class="white-text" >Saved profiles</h4>
+      </div>
+    </div></li>
+    <li class="card" *ngFor='let profile of proflies' (click)='onLoadProfile(profile)'><a style="height: unset ; padding: 0 10px ;text-decoration: none;" href='#'><i class="material-icons yellow-text">bubble_chart</i><i class="tiny material-icons black-text right" style="padding-right: 0; cursor: pointer;" (click)='deleteProfile($event ,profile)'>clear</i><h5>{{profile.profileName}} : {{profile.cities.join(', ')}}</h5></a></li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="large white-text material-icons">menu</i></a>
     
 </div>

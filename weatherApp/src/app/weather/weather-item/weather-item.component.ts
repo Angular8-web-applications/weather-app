@@ -7,12 +7,17 @@ import {WeatherItemClass} from '../classes/weatherItem'
 })
 export class WeatherItemComponent implements OnInit {
   @Input('item') weatherItem: WeatherItemClass;
+  
   constructor() { 
-    // this.weatherItem = new WeatherItemClass('Cairo','sunny',27)
-
+    
   }
-
+  public convertFahrenheitToCelsius(value) :Number {
+    // var input=parseFloat(value)
+    return Math.round((value - 32) * 5.0 / 9.0)
+}
   ngOnInit() {
+    // console.log(this.convertFahrenheitToCelsius(this.weatherItem.temprature));
+    // this.convertFahrenheitToCelsius(this.weatherItem.temprature)
   }
 
 }

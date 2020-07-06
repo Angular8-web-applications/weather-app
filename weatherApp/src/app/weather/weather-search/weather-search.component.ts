@@ -16,7 +16,7 @@ export class WeatherSearchComponent implements OnInit {
   private searchStream= new Subject<string>()
   private weatherData;
   private cityNameFound;
-
+  private iconUrl;
 
   public saveNew(){
     const cities= this.weatherService.getWeatherItem().map((element)=>{
@@ -27,7 +27,7 @@ export class WeatherSearchComponent implements OnInit {
   }
   onSubmit(){
     // console.log(formData.value.location);
-        const newWeatherItem = new WeatherItemClass(this.weatherData.body.name,this.weatherData.body.weather[0].description,this.weatherData.body.main.temp)
+        const newWeatherItem = new WeatherItemClass(this.weatherData.body.name,this.weatherData.body.weather[0].description,this.weatherData.body.main.temp,this.iconUrl)
         this.weatherService.addingWeatherItem(newWeatherItem)
       console.log(newWeatherItem);
       
@@ -48,6 +48,7 @@ export class WeatherSearchComponent implements OnInit {
     .subscribe(data=>{
       this.weatherData=data;
       this.cityNameFound=data.body.name
+      this.iconUrl= `http://openweathermap.org/img/wn/${data.body.weather[0].icon}@2x.png`;
       console.log(this.weatherData.body);
     })
     

@@ -1,8 +1,12 @@
 header{
     color: azure;
-    height: 250px;
-    background-color: #454354;
+    /* height: 250px; */
+    /* background-color: #454354; */
+    
+
+    margin: 0;
 }
+
  
 /* 
     dark blue >> #454354

@@ -10,7 +10,7 @@ export class ProfileService {
   ]
 
   public saveNewProfile( cities :string[]){
-    const profileName ='Profile' + this.profiles.length
+    const profileName ='Profile ' + this.profiles.length
     const newProfile = new Profile(profileName,cities)
     this.profiles.push(newProfile)
   }

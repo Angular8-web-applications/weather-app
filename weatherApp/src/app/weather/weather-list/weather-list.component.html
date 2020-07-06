@@ -1,3 +1,18 @@
-<section class="weatherList">
-    <app-weather-item *ngFor='let weatherItem of weatherItems' [item]='weatherItem'></app-weather-item>
+<section>
+    <!-- <div class="row">
+        <div class="">
+            <div class="col-12">
+            <div class="container">
+               
+
+            </div>
+
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="container">
+            <app-weather-item [item]='weatherItem' *ngFor='let weatherItem of weatherItems'></app-weather-item>
+        </div>
+    </div>
 </section>

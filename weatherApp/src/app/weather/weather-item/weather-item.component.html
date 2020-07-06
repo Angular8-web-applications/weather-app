@@ -1,9 +1,10 @@
 <section class="container mt-4">
-    <article class="card shadow-sm weather__card weather__card-dark">
-        <div class="card-body">
+    <div class="card z-depth-1 weather__card weather__card-dark" style="min-width: 300px;border: unset;">
+        <div class="card-content">
             <div class="col mx-auto">
                 <div class="city-name__text text-center p-4">{{ weatherItem.cityName }}</div>
-                <div class="weather-icon__container mx-auto" [ngSwitch]="true">
+                
+                <div class="weather-icon__container mx-auto" [ngSwitch]="true"><img src='{{weatherItem.icon}}' style="width: 100;" class="weather-icon__container pl-3" *ngSwitchDefault>
                     <svg *ngSwitchCase="weatherItem.description === 'sunny' || weatherItem.description === 'clear'" viewBox="2050 -845 262 262">
                       <circle cx="131" cy="131" r="131" fill="#ffde17" data-name="Sun Icon" transform="translate(2050 -845)"/>
                     </svg>
@@ -52,11 +53,12 @@
                       </g>
                     </svg>
                 </div>
+                
                 <div class=" text-center  weather-condition__text p-4"> {{weatherItem.description}}</div>
-                <div class="temprature temperature-metric__text text-center">{{weatherItem.temprature}} °</div>
+                <div class="temprature temperature-metric__text text-center">{{convertFahrenheitToCelsius(weatherItem.temprature)}} °</div>
             </div>
             
         </div>
         
-    </article>
+      </div>
 </section>
